@@ -10,57 +10,70 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Headset } from "lucide-react";
 
 export default function ConnectWithUs() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">تماس با ما</Button>
+        <Button variant="outline" className="rounded-xl flex gap-x-3">
+          <span className="sm:hidden">تماس با ما</span>
+          <Headset  size={20} />
+        </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[330px] rounded-lg max-w-[540px] dark:bg-blue-950 ">
         <DialogHeader>
-          <DialogTitle className="text-left">درخواست مشاوره</DialogTitle>
-          <DialogDescription className="text-left">
-            Make changes to your profile here. Click save when you're done.
-          </DialogDescription>
+          <DialogTitle className="text-left xs:text-base">
+            درخواست مشاوره
+          </DialogTitle>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4 ">
-            <Label htmlFor="name" className="text-right">
+        <div className="flex  flex-col gap-4 py-4">
+          <div className=" flex flex-col  sm:block  gap-y-2 ">
+            <span className=" sm:mb-3 whitespace-nowrap sm:text-xs text-base">
               نام :
-            </Label>
+            </span>
             <Input
               id="name"
               placeholder="نام خود را وارد کنید"
               className="col-span-3"
             />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4 ">
-            <Label htmlFor="name" className="text-right">
+          <div className=" flex flex-col sm:block   gap-y-2 ">
+            <span className=" sm:mb-2 whitespace-nowrap sm:text-xs text-base ">
               شماره تماس :
-            </Label>
-            <Input
-              id="name"
-              placeholder="۹۹xxxxxxxx"
-              className="col-span-3"
-            />
+            </span>
+            <Input id="phone" placeholder="۹۹xxxxxxxx" className="col-span-3" />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
+          <div className="flex flex-col sm:block  gap-y-2">
+            <span className=" sm:text-xs whitespace-nowrap text-base">
               ایمیل :
-            </Label>
+            </span>
             <Input
-              id="username"
+              id="email"
               placeholder="xxx@gmail.com"
               className="col-span-3"
               type="email"
             />
           </div>
+          <div className=" flex flex-col  sm:block  gap-y-2 ">
+            <div className="grid w-full gap-1.5">
+              <Label htmlFor="message-2">پیامتان را وارد کنید :</Label>
+              <Textarea placeholder="Type your message here." id="message-2" />
+              <p className="text-sm text-muted-foreground">
+                پیامتان به تیم پشتیبانی ارسال میشود
+              </p>
+            </div>
+          </div>
         </div>
-        <DialogFooter>
-          <Button type="submit">ارسال</Button>
-          <Button variant={"destructive"}>لغو</Button>
-        </DialogFooter>
+        <div className="w-full flex sm:flex-col gap-2 justify-between">
+          <Button className="flex-1" variant={"destructive"}>
+            لغو
+          </Button>
+          <Button type="submit" className="flex-1">
+            ارسال
+          </Button>
+        </div>
       </DialogContent>
     </Dialog>
   );
