@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -19,7 +20,7 @@ export default function ConnectWithUs() {
       <DialogTrigger asChild>
         <Button variant="outline" className="rounded-xl flex gap-x-3">
           <span className="sm:hidden">تماس با ما</span>
-          <Headset  size={20} />
+          <Headset size={20} />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[330px] rounded-lg max-w-[540px] dark:bg-blue-950 ">
@@ -67,9 +68,11 @@ export default function ConnectWithUs() {
           </div>
         </div>
         <div className="w-full flex sm:flex-col gap-2 justify-between">
-          <Button className="flex-1" variant={"destructive"}>
-            لغو
-          </Button>
+          <DialogClose asChild>
+            <Button type="button" className="flex-1" variant={"destructive"}>
+              لغو
+            </Button>
+          </DialogClose>
           <Button type="submit" className="flex-1">
             ارسال
           </Button>
